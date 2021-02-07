@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_ENDPOINT } from "./context";
+export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 export const useFetch = (useParams) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +24,7 @@ export const useFetch = (useParams) => {
     }
   };
   useEffect(() => {
-    fetchData(`${API_ENDPOINT}&s=${useParams}`);
+    fetchData(`${API_ENDPOINT}${useParams}`);
   }, [useParams]);
   return { isLoading, error, data };
 };
