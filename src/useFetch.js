@@ -15,6 +15,7 @@ export const useFetch = (useParams) => {
       if (rData.Response === "True") {
         setData(rData.Search || rData);
         setError({ show: false, msg: "" });
+        console.log(API_ENDPOINT);
       } else {
         setError({ show: true, msg: rData.Error });
       }
