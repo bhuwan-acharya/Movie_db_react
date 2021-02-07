@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
+const API_ENDPOINT = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 export const useFetch = (useParams) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,6 @@ export const useFetch = (useParams) => {
       if (rData.Response === "True") {
         setData(rData.Search || rData);
         setError({ show: false, msg: "" });
-        console.log(API_ENDPOINT);
       } else {
         setError({ show: true, msg: rData.Error });
       }
